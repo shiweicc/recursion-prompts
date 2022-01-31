@@ -7,45 +7,111 @@
 // Example: 5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5); // 120
 var factorial = function(n) {
-  // if the number is negative, it doesn't have a factorial. Return an impossible value to indicate that.
+  if (n < 0) {
+    return null;
+  }
 
-  // if the number is 0, its factorial is 1.
+  if (n === 0) {
+    return 1;
+  }
 
-
-
-  // if the number is neither illegal nor zero, call factorial again,
-  // this time passing a smaller number, eventually we will recah 0,
-  // causing each call to return to its caller and the recursion terminates.
-
+  var result = n * factorial(n - 1);
+  return result;
 };
 
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
+  var result  = 0;
 
+  if (typeof array === 'number') {
+    return array;
+  }
+
+  array.forEach(function(array) {
+    result += sum(array);
+  });
+
+  return result;
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+  var result = 0;
 
+  if(typeof array === 'number') {
+    return array;
+  }
+
+  array.forEach(function(array) {
+    result += arraySum(array);
+  });
+
+  return result;
 };
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  if (n < 0) {
+    n = n * -1;
+  } else if (n === 0) {
+    return true;
+  } else if (n === 1) {
+    return false;
+  }
+
+  if (n > 3) {
+    return isEven(n - 2);
+  }
+
+  if (n - 2 === 0) {
+    return true;
+  } else if (n - 2 === 1) {
+    return false;
+  }
 
 };
+
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
-var sumBelow = function(n) {
 
+/* Steps to solve recursion
+1. Identity the smallest piece of the data that your function needs to handle
+2. Write the function to handle this case and only this case
+3. Identify what will make the function need to continue
+4. Make the recursive call
+5. Accumulate the return */
+var sumBelow = function(n) {
+  if (n < 0) {
+    var j = n * -1;
+  } else {
+    j = n;
+  }
+
+  if (j === 0) {
+    return 0;
+  }
+
+  if (j === 1) {
+    return 0;
+  }
+
+  var result = (j - 1) + sumBelow(j - 1);
+
+  if (n < 0) {
+    return result * -1;
+  }
+
+  return result;
 };
+
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
-
+var range = function(x, y) {
 };
 
 // 7. Compute the exponent of a number.
@@ -54,7 +120,6 @@ var sumBelow = function(n) {
 // exponent(4,3); // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
-
 };
 
 // 8. Determine if a number is a power of two.
@@ -62,21 +127,15 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
-
 };
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
-
-
-
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
-
 };
-
 
 // 11. Write a function that returns the remainder of x divided by y without using the
 // modulo (%) operator.
