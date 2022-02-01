@@ -154,21 +154,73 @@ var exponent = function(base, exp) {
     exp = exp * -1;
     return (1 / (base * exponent(base, exp - 1)));
   }
+
 };
 
 // 8. Determine if a number is a power of two.
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
+//example 1, 2, 4, 8, 16, 32
 var powerOfTwo = function(n) {
+  if (n === 1) {
+    return true;
+  }
+
+  if (n > 1) {
+    return powerOfTwo(n / 2);
+  }
+
+  if (n < 1) {
+    return false;
+  }
+
 };
 
 // 9. Write a function that reverses a string.
+//in:peter out: retep
+//in:tam out:mat
+
+// .pop() & .shift() -> remove the last/fisrt element in the array
+  // it changes the length of the array, and return the removed element
+// array.pop() + [t, a] // m + [t, a]
+//   array.pop() + [t]     // t + [a]
+//     array.pop() + []       // a + []
 var reverse = function(string) {
+  if (string.length === 0) {
+    return "";
+  }
+
+  if (string.length > 0) {
+    return string.slice(string.length - 1) + reverse(string.slice(0, string.length - 1));
+  }
+
 };
 
 // 10. Write a function that determines if a string is a palindrome.
+// wew -> reverse wew -> compare two string using ===
+// 123321
+
 var palindrome = function(string) {
+  // E: ignore spaces and capital letters
+    // use tolowercase method
+    //
+  var result = "";
+
+  if (string.length === 0) {
+    return "";
+  }
+
+  if (string.length > 0) {
+    result += string.slice(string.length - 1) + palindrome(string.slice(0, string.length - 1));
+  }
+
+  if (string.toLowerCase() === result.toLowerCase()) {
+    return true;
+  } else {
+    return false;
+  }
+
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
@@ -250,11 +302,13 @@ var countKeysInObj = function(obj, key) {
 // countValuesInObj(obj, 'r') // 2
 // countValuesInObj(obj, 'e') // 1
 var countValuesInObj = function(obj, value) {
+
 };
 
 // 24. Find all keys in an object (and nested objects) by a provided name and rename
 // them to a provided new name while preserving the value stored at that key.
 var replaceKeysInObj = function(obj, oldKey, newKey) {
+
 };
 
 // 25. Get the first n Fibonacci numbers. In the Fibonacci sequence, each subsequent
