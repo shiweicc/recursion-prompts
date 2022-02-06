@@ -4,7 +4,7 @@
   'use strict';
 
   describe('More Exercises in Recursion', function() {
-
+/*
     describe('37. Count Tags', function() {
       var originalTagCount, actualResults, expectedResults, tags, $child, $rootElement;
 
@@ -68,7 +68,7 @@
       });
 
     });
-
+*/
 
 
     describe('38. Binary Search', function() {
