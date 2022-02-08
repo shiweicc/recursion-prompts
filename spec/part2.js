@@ -4,7 +4,7 @@
   'use strict';
 
   describe('More Exercises in Recursion', function() {
-/*
+
     describe('37. Count Tags', function() {
       var originalTagCount, actualResults, expectedResults, tags, $child, $rootElement;
 
@@ -39,6 +39,8 @@
       it('should return number of times tag occurs', function() {
         actualResults.push(tagCount('div'));
         expectedResults.push(document.getElementsByTagName('div').length);
+        // console.log(actualResults);
+        // console.log(document.getElementsByTagName('div'));
         expect(actualResults[1]).to.equal(expectedResults[1]);
       });
 
@@ -68,7 +70,7 @@
       });
 
     });
-*/
+
 
 
     describe('38. Binary Search', function() {

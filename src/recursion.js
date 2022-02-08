@@ -425,30 +425,26 @@ var numToText = function(str) {
 // 37. Return the number of times a tag occurs in the DOM.
 var tagCount = function(tag, node) {
   if (node === undefined) {
-    return 0;
+    node = document.body;
   }
 
   var count = 0;
-  //base, when no child node
-  if (!node.hasChildNodes()) {
-    if(node.tagName === tag) {
-      // console.log('success base')
+  // only elements have tags, other node type doesn't has any tags
+  if (node.tagName !== undefined) {
+    if(node.tagName.toLowerCase() === tag) {
       count++;
     }
   }
 
   //recursive, has child note
   if (node.hasChildNodes()) {
-    console.log('I have child');
     node.childNodes.forEach(function(child) {
-      console.log('success recursive')
       count += tagCount(tag, child);
     })
   }
 
   return count;
 };
-// Q1: console.log(node) -> it show five undefine and one element with childnodes, why there are five underfine?
 
 
 
